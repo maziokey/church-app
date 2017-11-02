@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% block title %}
+        Holy Rosary Catholic Church
+      {% endblock %}
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if IE]><script
+      src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+    </script><![endif]-->
+  </head>
+
+  <body>
+
+    <div><!-- container -->
+      <nav>
+        <ul>
+          <li><a href="{% url '' %}">Priests</a></li>
+          <li><a href="{% url '' %}">Sisters</a></li>
+          <li><a href="{% url '' %}">Cathecists</a></li>
+          <li><a href="{% url '' %}">Alter Boys</a></li>
+          <li><a href="{% url '' %}">Sermons</a></li>
+          <li><a href="{% url '' %}">Issues</a></li>
+          <li><a href="{% url '' %}">Announcements</a></li>
+          <li><a href="{% url '' %}">Projects</a></li>
+          <li><a href="{% url '' %}">Parishioners</a></li>
+          <li><a href="{% url '' %}">Societies</a></li>
+          <li><a href="{% url '' %}">Communities</a></li>
+          <li><a href="{% url '' %}">Sacraments</a></li>
+          <li><a href="{% url '' %}">Festivals</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+      {% if messages %}
+        <div>
+          <div>
+            <ul>
+              {% for message in messages %}
+                {% if message.tags %}
+                  <li class="{{ message.tags }}">
+                {% else %}
+                  <li>
+                {% endif %}
+                {{ message }}</li>
+              {% endfor %}
+        </ul></div></div>
+      {% endif %}
+      <header>
+          <h1>Holy Rosary Catholic Church</h1>
+      </header>
+      <main>
+        {% block content %}
+          This is default content!
+        {% endblock %}
+      </main>
+    </div><!-- container -->
+
+    <footer>
+      <p>
+        &copy; 2017
+        <a href="https://maxichimaximind.wordpress.com">
+          Okey Chima</a>
+      </p>
+      <p>
+        Created for
+        <a href="https://maxichimaximind.wordpress.com">
+          Maxichimaximind</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

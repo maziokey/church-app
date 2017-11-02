@@ -1,0 +1,40 @@
+<article>
+  <h2>{{ parishioner.name }}</h2>
+  <dl>
+    <dt>Date of Birth</dt>
+      <dd>{{ parishioner.date_of_birth|date:"F jS, Y" }}</dd>
+    <dt>Email</dt>
+      <dd>{{ parishioner.email }}</dd>
+    <dt>Phone Number</dt>
+      <dd>{{ parishioner.phone_number }}</dd>
+    <dt>Start Date</dt>
+      <dd>{{ parishioner.start_date|date:"F jS, Y" }}</dd>
+  </dl>
+  <section>
+    <h3>societies</h3>
+    <ul>
+      <!-- list of societies related to parishioner-->
+      {% for society in parishioner.societies.all %}
+        <li><a href="#">{{ society.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section>
+    <h3>community</h3>
+    <ul>
+      <!-- community related to parishioner-->
+      {% for community in parishioner.communities %}
+        <li><a href="#">{{ community.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section>
+    <h3>sacraments</h3>
+    <ul>
+      <!-- list of sacraments related to parishioner-->
+      {% for sacrament in parishioner.sacraments.all %}
+        <li><a href="#">{{ sacrament.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+</article>
