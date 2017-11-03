@@ -1,0 +1,29 @@
+{% extends parent_template|default:"blog/base_blog.html" %}
+
+{% block title %}
+{{ block.super }} - Current Projects
+{% endblock %}
+
+{% block content %}
+
+{% for project in project_list %}
+  <article>
+    <header>
+      <h2><a href="#">{{ project.title|title }}</a></h2>
+      <p>
+        Project Started on:
+        <time datetime="{{ project.start_date|date:"Y-m-d" }}">
+          {{ project.start_date|date:"l, F j, Y" }}
+        </time>
+      </p>
+    </header>
+    <p>{{ project.text|truncatewords:20 }}</p>
+    <p>
+      <a href="#">Read more&hellip;</a>
+    </p>
+  </article>
+{% empty %}
+  <p><em>No Pending projects</em></p>
+{% endfor %}
+
+{% endblock %}

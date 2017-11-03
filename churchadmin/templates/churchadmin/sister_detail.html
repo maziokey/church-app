@@ -1,0 +1,24 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - {{ sister.name|title }}
+{% endblock %}
+
+{% block content %}
+<article>
+  <h2>{{ sister.name|title }}</h2>
+  <dl>
+    <dt>Mission</dt>
+      <dd>{{ sister.mission }}</dd>
+    <dt>Position</dt>
+      <dd>{{ sister.position }}</dd>
+    <dt>Email</dt>
+      <dd>{{ sister.email }}</dd>
+    <dt>Phone Number</dt>
+      <dd>{{ sister.phone_number }}</dd>
+    <dt>Date Posted</dt>
+      <dd>{{ sister.date_posted|date:"F jS, Y" }}</dd>
+  </dl>
+</article>
+
+{% endblock %}

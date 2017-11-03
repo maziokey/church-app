@@ -1,0 +1,18 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Our Rev Sisters
+{% endblock %}
+
+{% block content %}
+
+<h2>Our Sisters</h2>
+<ul>
+  {% for sister in sister_list %}
+    <li><a href="#">{{ sister.name|title }}</a></li>
+  {% empty %}
+    <li><em>There are no sisters in our church yet.</em></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

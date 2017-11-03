@@ -1,0 +1,18 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Our Priests
+{% endblock %}
+
+{% block content %}
+
+<h2>Our Priests</h2>
+<ul>
+  {% for priest in priest_list %}
+    <li><a href="#">{{ priest.name|title }}</a></li>
+  {% empty %}
+    <li><em>There are no priests in our church yet.</em></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

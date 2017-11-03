@@ -1,0 +1,38 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - {{ society.name|title }}
+{% endblock %}
+
+{% block content %}
+<article>
+  <h2>{{ society.name|title }}</h2>
+  <dl>
+    <dt>Description</dt>
+      <dd>{{ society.description }}</dd>
+    <dt>Leader</dt>
+      <dd>{{ society.leader }}</dd>
+    <dt>Contact Email</dt>
+      <dd>{{ society.email }}</dd>
+    <dt>Contact Number</dt>
+      <dd>{{ society.phone_number }}</dd>
+  </dl>
+
+  {% if society.parishoners.all %}
+    <section>
+      <h3>Parishioners{{ society.parishoners.count|pluralize }}</h3>
+      <ul>
+        {% for parishioner in society.parishoners.all %}
+          <li><a href="{{  }}">{{ parishioner.name|title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if not society.parishoners.all %}
+    <p>This society has no members.</p>
+  {% endif %}
+
+</article>
+
+{% endblock %}

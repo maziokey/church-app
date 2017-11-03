@@ -1,0 +1,23 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - {{ cathecist.name|title }}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <h2>{{ cathecist.name|title }}</h2>
+  <dl>
+    <dt>Position</dt>
+      <dd>{{ cathecist.position }}</dd>
+    <dt>Email</dt>
+      <dd>{{ cathecist.email }}</dd>
+    <dt>Phone Number</dt>
+      <dd>{{ cathecist.phone_number }}</dd>
+    <dt>Date Posted</dt>
+      <dd>{{ cathecist.date_posted|date:"F jS, Y" }}</dd>
+  </dl>
+</article>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - {{ alterboy.name|title }}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <h2>{{ alterboy.name|title }}</h2>
+  <dl>
+    <dt>Date Posted</dt>
+      <dd>{{ alterboy.start_date|date:"F jS, Y" }}</dd>
+  </dl>
+</article>
+
+{% endblock %}

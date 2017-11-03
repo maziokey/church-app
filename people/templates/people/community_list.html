@@ -1,0 +1,17 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Our Communities
+{% endblock %}
+
+{% block content %}
+<h2>Our Communities</h2>
+<ul>
+  {% for community in community_list %}
+    <li><a href="#">{{ community.name|title }}</a></li>
+  {% empty %}
+    <li><em>There are no communities to join this year.</em></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

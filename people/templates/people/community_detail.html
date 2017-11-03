@@ -1,0 +1,39 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - {{ community.name|title }}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <h2>{{ community.name|title }}</h2>
+  <dl>
+    <dt>Description</dt>
+      <dd>{{ community.description }}</dd>
+    <dt>Leader</dt>
+      <dd>{{ community.leader }}</dd>
+    <dt>Contact Email</dt>
+      <dd>{{ community.email }}</dd>
+    <dt>Contact Number</dt>
+      <dd>{{ community.phone_number }}</dd>
+  </dl>
+
+  {% if community.parishoners.all %}
+    <section>
+      <h3>Parishioners{{ community.parishoners.count|pluralize }}</h3>
+      <ul>
+        {% for parishioner in community.parishoners.all %}
+          <li><a href="{{  }}">{{ parishioner.name|title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if not community.parishoners.all %}
+    <p>This community has no members.</p>
+  {% endif %}
+
+</article>
+
+{% endblock %}

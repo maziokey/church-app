@@ -1,0 +1,18 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Festivals
+{% endblock %}
+
+{% block content %}
+
+<h2>Festivals</h2>
+<ul>
+  {% for festival in festival_list %}
+    <li><a href="#">{{ festival.name|title }}</a></li>
+  {% empty %}
+    <li><em>There are no Festivals to celebrate this year.</em></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

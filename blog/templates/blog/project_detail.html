@@ -1,0 +1,31 @@
+{% extends parent_template|default:"blog/base_blog.html" %}
+
+{% block title %}
+{{ block.super }} - {{ project.title|title }}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <header>
+    <h2>{{ project.title|title }}</h2>
+    <p>
+     Started on
+      <time datetime="{{ project.start_date|date:"Y-m-d" }}">
+        {{ project.start_date|date:"l, F j, Y" }}
+      </time>
+    </p>
+  </header>
+   <p>
+     {{ project.members }}
+   </p>
+
+   {{ project.text|linebreaks }}
+
+   <p>
+     {{ project.status }}
+   </p>
+
+</article>
+
+{% endblock %}

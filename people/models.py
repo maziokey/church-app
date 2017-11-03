@@ -73,4 +73,4 @@ class Parishioner(models.Model):
 
     class meta:
         ordering = ['name']
-        verbose_name_plural = "parishoners"
+        verbose_name_plural = "parishioners"

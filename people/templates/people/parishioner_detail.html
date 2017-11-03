@@ -1,5 +1,13 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - {{ parishioner.name|title }}
+{% endblock %}
+
+{% block content %}
+
 <article>
-  <h2>{{ parishioner.name }}</h2>
+  <h2>{{ parishioner.name|title }}</h2>
   <dl>
     <dt>Date of Birth</dt>
       <dd>{{ parishioner.date_of_birth|date:"F jS, Y" }}</dd>
@@ -9,32 +17,17 @@
       <dd>{{ parishioner.phone_number }}</dd>
     <dt>Start Date</dt>
       <dd>{{ parishioner.start_date|date:"F jS, Y" }}</dd>
-  </dl>
-  <section>
-    <h3>societies</h3>
-    <ul>
-      <!-- list of societies related to parishioner-->
+    <dt>Community</dt>
+      <dd>{{ parishioner.communities|title }}</dd>
+    <dt>Societies</dt>
       {% for society in parishioner.societies.all %}
-        <li><a href="#">{{ society.name }}</a></li>
+        <dd><a href="#">{{ society.name|title }}</a></dd>
       {% endfor %}
-    </ul>
-  </section>
-  <section>
-    <h3>community</h3>
-    <ul>
-      <!-- community related to parishioner-->
-      {% for community in parishioner.communities %}
-        <li><a href="#">{{ community.name }}</a></li>
-      {% endfor %}
-    </ul>
-  </section>
-  <section>
-    <h3>sacraments</h3>
-    <ul>
-      <!-- list of sacraments related to parishioner-->
-      {% for sacrament in parishioner.sacraments.all %}
-        <li><a href="#">{{ sacrament.name }}</a></li>
-      {% endfor %}
-    </ul>
-  </section>
+      <dt>sacraments</dt>
+        {% for sacrament in parishioner.sacraments.all %}
+          <dd><a href="#">{{ sacrament.name|title }}</a></dd>
+        {% endfor %}
+  </dl>
 </article>
+
+{% endblock %}

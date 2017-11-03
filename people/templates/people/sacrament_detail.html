@@ -1,0 +1,32 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - {{ sacrament.name|title }}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <h2>{{ sacrament.name|title }}</h2>
+  <dl>
+    <dt>Description</dt>
+      <dd>{{ sacrament.description }}</dd>
+  </dl>
+
+  {% if sacrament.parishoners.all %}
+    <section>
+      <h3>Parishioners{{ sacrament.parishoners.count|pluralize }}</h3>
+      <ul>
+        {% for parishioner in sacrament.parishoners.all %}
+          <li><a href="{{  }}">{{ parishioner.name|title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    {% if not sacrament.parishoners.all %}
+      <p>This sacrament has not been taken by any parishioner.</p>
+    {% endif %}
+
+</article>
+
+{% endblock %}

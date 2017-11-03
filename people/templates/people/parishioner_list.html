@@ -1,0 +1,18 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Our Parishioners
+{% endblock %}
+
+{% block content %}
+
+<h2>Our Parishioners</h2>
+<ul>
+  {% for parishioner in parishioner_list %}
+    <li><a href="#">{{ parishioner.name|title }}</a></li>
+  {% empty %}
+    <li><em>There are no Parishioner in this church.</em></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

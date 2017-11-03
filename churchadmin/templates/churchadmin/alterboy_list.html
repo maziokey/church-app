@@ -1,0 +1,17 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Our Mass Servants
+{% endblock %}
+
+{% block content %}
+<h2>Our Mass Servants</h2>
+<ul>
+  {% for alterboy in alterboy_list %}
+    <li><a href="#">{{ alterboy.name|title }}</a></li>
+  {% empty %}
+    <li><em>There are no alterboys in our church yet.</em></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

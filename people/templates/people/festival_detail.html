@@ -1,0 +1,21 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - {{ festival.name|title }}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <h2>{{ festival.name|title }}</h2>
+  <dl>
+    <dt>Festival Date</dt>
+      <dd>{{ festival.festival_date|date:"F jS, Y" }}</dd>
+    <dt>Description</dt>
+      <dd>{{ festival.description }}</dd>
+    <dt>Colors</dt>
+      <dd>{{ festival.colors }}</dd>
+  </dl>
+</article>
+
+{% endblock %}

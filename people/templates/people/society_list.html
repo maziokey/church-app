@@ -1,0 +1,18 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Our Societies
+{% endblock %}
+
+{% block content %}
+
+<h2>Our Societies</h2>
+<ul>
+  {% for society in society_list %}
+    <li><a href="#">{{ society.name|title }}</a></li>
+  {% empty %}
+    <li><em>There are no societies to join this year.</em></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
