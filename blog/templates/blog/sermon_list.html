@@ -9,7 +9,7 @@
 {% for sermon in sermon_list %}
   <article>
     <header>
-      <h2><a href="#">{{ sermon.title|title }}</a></h2>
+      <h2><a href="{{ sermon.get_absolute_url }}">{{ sermon.title|title }}</a></h2>
       <p>
         Written on:
         <time datetime="{{ sermon.pub_date|date:"Y-m-d" }}">
@@ -19,7 +19,7 @@
     </header>
     <p>{{ sermon.text|truncatewords:20 }}</p>
     <p>
-      <a href="#">Read more&hellip;</a>
+      <a href="{{ sermon.get_absolute_url }}">Read more&hellip;</a>
     </p>
   </article>
 {% empty %}

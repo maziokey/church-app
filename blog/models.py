@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Sermon(models.Model):
@@ -9,6 +10,9 @@ class Sermon(models.Model):
 
     def __str__(self):
         return "{} on {}".format(self.title, self.pub_date.strftime('%Y-%m-%d'))
+
+    def get_absolute_url(self):
+        return reverse('blog_sermon_detail', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
 
     class meta:
         verbose_name_plural = 'sermons'
@@ -24,6 +28,9 @@ class Issue(models.Model):
     def __str__(self):
         return "{} on {}".format(self.title, self.pub_date.strftime('%Y-%m-%d'))
 
+    def get_absolute_url(self):
+        return reverse('blog_issue_detail', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
+
     class meta:
         verbose_name_plural = 'issues'
         ordering = ['-pub_date']
@@ -37,6 +44,9 @@ class Announcement(models.Model):
 
     def __str__(self):
         return "{} on {}".format(self.title, self.pub_date.strftime('%Y-%m-%d'))
+
+    def get_absolute_url(self):
+        return reverse('blog_announcement_detail', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
 
     class meta:
         verbose_name_plural = 'announcements'
@@ -60,6 +70,9 @@ class Project(models.Model):
 
     def __str__(self):
         return "{} on {}".format(self.title, self.start_date.strftime('%Y-%m-%d'))
+
+    def get_absolute_url(self):
+        return reverse('blog_project_detail', kwargs={'year': self.start_date.year, 'month': self.start_date.month, 'slug': self.slug})
 
     class meta:
         verbose_name_plural = 'projects'

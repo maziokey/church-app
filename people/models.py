@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Society(models.Model):
@@ -11,6 +12,9 @@ class Society(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('people_society_detail', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']
@@ -27,6 +31,9 @@ class Community(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('people_community_detail', kwargs={'slug': self.slug})
+
     class meta:
         ordering = ['name']
         verbose_name_plural = "communities"
@@ -38,6 +45,9 @@ class Sacrament(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('people_sacrament_detail', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']
@@ -52,6 +62,9 @@ class Festival(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('people_festival_detail', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']
@@ -70,6 +83,9 @@ class Parishioner(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('people_parishioner_detail', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']

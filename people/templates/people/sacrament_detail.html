@@ -13,19 +13,19 @@
       <dd>{{ sacrament.description }}</dd>
   </dl>
 
-  {% if sacrament.parishoners.all %}
-    <section>
-      <h3>Parishioners{{ sacrament.parishoners.count|pluralize }}</h3>
-      <ul>
-        {% for parishioner in sacrament.parishoners.all %}
-          <li><a href="{{  }}">{{ parishioner.name|title }}</a></li>
-        {% endfor %}
-      </ul>
-    </section>
-
-    {% if not sacrament.parishoners.all %}
-      <p>This sacrament has not been taken by any parishioner.</p>
-    {% endif %}
+{% if sacrament.parishoners.all %}
+  <section>
+    <h3>Parishioner{{ sacrament.parishoners.count|pluralize }}</h3>
+    <ul>
+      {% for parishioner in sacrament.parishoners.all %}
+        <li><a href="{{ parishioner.get_absolute_url }}">{{ parishioner.name|title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
+{% if not sacrament.parishoners.all %}
+  <p>This sacrament has not been taken by any parishioner.</p>
+{% endif %}
 
 </article>
 

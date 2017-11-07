@@ -9,7 +9,7 @@
 <h2>Our Priests</h2>
 <ul>
   {% for priest in priest_list %}
-    <li><a href="#">{{ priest.name|title }}</a></li>
+    <li><a href="{{ priest.get_absolute_url }}">{{ priest.name|title }}</a></li>
   {% empty %}
     <li><em>There are no priests in our church yet.</em></li>
   {% endfor %}

@@ -9,7 +9,7 @@
 {% for announcement in announcement_list %}
   <article>
     <header>
-      <h2><a href="#">{{ announcement.title|title }}</a></h2>
+      <h2><a href="{{ announcement.get_absolute_url }}">{{ announcement.title|title }}</a></h2>
       <p>
         Written on:
         <time datetime="{{ announcement.pub_date|date:"Y-m-d" }}">
@@ -19,7 +19,7 @@
     </header>
     <p>{{ announcement.text|truncatewords:20 }}</p>
     <p>
-      <a href="#">Read more&hellip;</a>
+      <a href="{{ announcement.get_absolute_url }}">Read more&hellip;</a>
     </p>
   </article>
 {% empty %}

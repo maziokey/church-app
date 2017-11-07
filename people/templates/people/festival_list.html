@@ -9,7 +9,7 @@
 <h2>Festivals</h2>
 <ul>
   {% for festival in festival_list %}
-    <li><a href="#">{{ festival.name|title }}</a></li>
+    <li><a href="{{ festival.get_absolute_url }}">{{ festival.name|title }}</a></li>
   {% empty %}
     <li><em>There are no Festivals to celebrate this year.</em></li>
   {% endfor %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Priest(models.Model):
@@ -12,6 +13,9 @@ class Priest(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('churchadmin_priest_detail', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']
@@ -29,6 +33,9 @@ class Sister(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('churchadmin_sister_detail', kwargs={'slug': self.slug})
+
     class meta:
         ordering = ['name']
         verbose_name_plural = "sisters"
@@ -44,6 +51,9 @@ class Cathecist(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('churchadmin_cathecist_detail', kwargs={'slug': self.slug})
+
     class meta:
         ordering = ['name']
         verbose_name_plural = "cathecists"
@@ -52,9 +62,13 @@ class Cathecist(models.Model):
 class AlterBoy(models.Model):
     name = models.CharField(max_length=41)
     start_date = models.DateField('start date')
+    slug = models.SlugField(max_length=31, unique=True, default='oldschool')
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('churchadmin_alterboy_detail', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']

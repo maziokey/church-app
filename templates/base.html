@@ -20,19 +20,19 @@
     <div><!-- container -->
       <nav>
         <ul>
-          <li><a href="#">Priests</a></li>
-          <li><a href="#">Sisters</a></li>
-          <li><a href="#">Cathecists</a></li>
-          <li><a href="#">Alter Boys</a></li>
-          <li><a href="#">Sermons</a></li>
-          <li><a href="#">Issues</a></li>
-          <li><a href="#">Announcements</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Parishioners</a></li>
-          <li><a href="#">Societies</a></li>
-          <li><a href="#">Communities</a></li>
-          <li><a href="#">Sacraments</a></li>
-          <li><a href="#">Festivals</a></li>
+          <li><a href="{% url 'churchadmin_priest_list' %}">Priests</a></li>
+          <li><a href="{% url 'churchadmin_sister_list' %}">Sisters</a></li>
+          <li><a href="{% url 'churchadmin_cathecist_list' %}">Cathecists</a></li>
+          <li><a href="{% url 'churchadmin_alterboy_list' %}">Alter Boys</a></li>
+          <li><a href="{% url 'blog_sermon_list' %}">Sermons</a></li>
+          <li><a href="{% url 'blog_issue_list' %}">Issues</a></li>
+          <li><a href="{% url 'blog_announcement_list' %}">Announcements</a></li>
+          <li><a href="{% url 'blog_project_list' %}">Projects</a></li>
+          <li><a href="{% url 'people_parishioner_list' %}">Parishioners</a></li>
+          <li><a href="{% url 'people_society_list' %}">Societies</a></li>
+          <li><a href="{% url 'people_community_list' %}">Communities</a></li>
+          <li><a href="{% url 'people_sacrament_list' %}">Sacraments</a></li>
+          <li><a href="{% url 'people_festival_list' %}">Festivals</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>

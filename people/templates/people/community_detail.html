@@ -24,7 +24,7 @@
       <h3>Parishioners{{ community.parishoners.count|pluralize }}</h3>
       <ul>
         {% for parishioner in community.parishoners.all %}
-          <li><a href="{{  }}">{{ parishioner.name|title }}</a></li>
+          <li><a href="{{ parishioner.get_absolute_url }}">{{ parishioner.name|title }}</a></li>
         {% endfor %}
       </ul>
     </section>

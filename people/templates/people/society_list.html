@@ -9,7 +9,7 @@
 <h2>Our Societies</h2>
 <ul>
   {% for society in society_list %}
-    <li><a href="#">{{ society.name|title }}</a></li>
+    <li><a href="{{ society.get_absolute_url }}">{{ society.name|title }}</a></li>
   {% empty %}
     <li><em>There are no societies to join this year.</em></li>
   {% endfor %}

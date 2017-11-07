@@ -18,14 +18,15 @@
     <dt>Start Date</dt>
       <dd>{{ parishioner.start_date|date:"F jS, Y" }}</dd>
     <dt>Community</dt>
-      <dd>{{ parishioner.communities|title }}</dd>
+      <!--<dd><a href="#">{{ parishioner.communities|title }}</a></dd>-->
+      <dd><a href="{{ community.get_absolute_url }}">{{ parishioner.communities|title }}</a></dd>
     <dt>Societies</dt>
       {% for society in parishioner.societies.all %}
-        <dd><a href="#">{{ society.name|title }}</a></dd>
+        <dd><a href="{{ society.get_absolute_url }}">{{ society.name|title }}</a></dd>
       {% endfor %}
       <dt>sacraments</dt>
         {% for sacrament in parishioner.sacraments.all %}
-          <dd><a href="#">{{ sacrament.name|title }}</a></dd>
+          <dd><a href="{{ sacrament.get_absolute_url }}">{{ sacrament.name|title }}</a></dd>
         {% endfor %}
   </dl>
 </article>

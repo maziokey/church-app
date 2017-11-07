@@ -9,7 +9,7 @@
 <h2>Our Sisters</h2>
 <ul>
   {% for sister in sister_list %}
-    <li><a href="#">{{ sister.name|title }}</a></li>
+    <li><a href="{{ sister.get_absolute_url }}">{{ sister.name|title }}</a></li>
   {% empty %}
     <li><em>There are no sisters in our church yet.</em></li>
   {% endfor %}

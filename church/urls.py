@@ -13,12 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from django.contrib import admin
 
 from blog.urls import sermon as sermon_urls, issue as issue_urls, announcement as announcement_urls, project as project_urls
 from churchadmin.urls import priest as priest_urls, sister as sister_urls, cathecist as cathecist_urls, alterboy as alterboy_urls
 from people.urls import society as society_urls, community as community_urls, sacrament as sacrament_urls, festival as festival_urls, parishioner as parishioner_urls
+from .views import redirect_root
 #from churchadmin.views import priest_list, priest_detail
 
 urlpatterns = [
