@@ -1,0 +1,22 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Cathecist
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ cathecist.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete Cathecist {{ cathecist.name }}?
+      </p>
+      <a href="{{ cathecist.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Cathecist</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

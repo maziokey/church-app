@@ -1,0 +1,18 @@
+{% extends parent_template|default:"blog/base_blog.html" %}
+
+{% block title %}
+{{ block.super }} - Create Sermon
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{% url 'blog_sermon_create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Sermon</button>
+  </div>
+</div>
+
+{% endblock %}

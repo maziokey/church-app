@@ -1,0 +1,18 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Update Festival
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ festival.get_update_url }}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Festival</button>
+  </div>
+</div>
+
+{% endblock %}

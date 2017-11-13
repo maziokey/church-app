@@ -1,0 +1,22 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Festival
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ festival.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete Festival {{ festival.name }}?
+      </p>
+      <a href="{{ festival.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Festival</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Create Society
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{% url 'people_society_create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Society</button>
+  </div>
+</div>
+
+{% endblock %}

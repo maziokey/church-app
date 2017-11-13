@@ -1,0 +1,22 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Priest
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ priest.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete Priest {{ priest.name }}?
+      </p>
+      <a href="{{ priest.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Priest</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

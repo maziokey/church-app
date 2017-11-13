@@ -1,0 +1,22 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Sister
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ sister.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete Sister {{ sister.name }}?
+      </p>
+      <a href="{{ sister.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Sister</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

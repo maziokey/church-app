@@ -1,0 +1,22 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Parishioner
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ parishioner.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete Parishioner {{ parishioner.name }}?
+      </p>
+      <a href="{{ parishioner.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Parishioner</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

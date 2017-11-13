@@ -1,0 +1,22 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Mass Servant
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ alterboy.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete Mass Servant {{ alterboy.name }}?
+      </p>
+      <a href="{{ alterboy.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Mass Servant</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

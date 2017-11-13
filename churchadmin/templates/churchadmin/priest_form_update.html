@@ -1,0 +1,18 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Update Priest
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ priest.get_update_url }}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Priest</button>
+  </div>
+</div>
+
+{% endblock %}

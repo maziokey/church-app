@@ -1,0 +1,18 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Update Cathecist
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ cathecist.get_update_url }}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Cathecist</button>
+  </div>
+</div>
+
+{% endblock %}

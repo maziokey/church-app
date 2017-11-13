@@ -1,0 +1,18 @@
+{% extends parent_template|default:"churchadmin/base_churchadmin.html" %}
+
+{% block title %}
+{{ block.super }} - Add Mass Servant
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{% url 'churchadmin_alterboy_create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Mass Servant</button>
+  </div>
+</div>
+
+{% endblock %}

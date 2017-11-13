@@ -1,0 +1,18 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Update Parishioner
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ parishioner.get_update_url }}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Parishioner</button>
+  </div>
+</div>
+
+{% endblock %}

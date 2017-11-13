@@ -1,0 +1,18 @@
+{% extends parent_template|default:"blog/base_blog.html" %}
+
+{% block title %}
+{{ block.super }} - Update Issue
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ issue.get_update_url }}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Issue</button>
+  </div>
+</div>
+
+{% endblock %}

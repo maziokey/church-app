@@ -1,0 +1,22 @@
+{% extends parent_template|default:"blog/base_blog.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Announcement
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ announcement.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete announcement {{ announcement.name }}?
+      </p>
+      <a href="{{ announcement.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Announcement</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

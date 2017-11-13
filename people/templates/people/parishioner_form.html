@@ -1,0 +1,18 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Add Parishioner
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{% url 'people_parishioner_create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Parishioner</button>
+  </div>
+</div>
+
+{% endblock %}

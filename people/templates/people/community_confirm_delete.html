@@ -1,0 +1,22 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Community
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ community.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete community {{ community.name }}?
+      </p>
+      <a href="{{ community.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Community</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

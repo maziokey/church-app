@@ -77,7 +77,7 @@ class Parishioner(models.Model):
     phone_number = models.CharField(max_length=20)
     start_date = models.DateField('date posted')
     societies = models.ManyToManyField(Society, blank=True, related_name='parishoners')
-    communities = models.ForeignKey(Community, blank=True, related_name='parishoners')
+    community = models.ForeignKey(Community, blank=True, related_name='parishoners')
     sacraments = models.ManyToManyField(Sacrament, blank=True, related_name='parishoners')
     slug = models.SlugField(max_length=31, unique=True)
 

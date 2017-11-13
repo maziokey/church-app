@@ -1,0 +1,22 @@
+{% extends parent_template|default:"people/base_people.html" %}
+
+{% block title %}
+{{ block.super }} - Delete Society
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div>
+    <form action="{{ society.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <p>
+        Are you sure you want to delete Society {{ society.name }}?
+      </p>
+      <a href="{{ society.get_absolute_url }}">Cancel</a>
+      <button type="submit">Delete Society</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
