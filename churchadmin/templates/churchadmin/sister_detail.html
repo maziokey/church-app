@@ -7,6 +7,10 @@
 {% block content %}
 <article>
   <h2>{{ sister.name|title }}</h2>
+  <ul>
+    <li><a href="{{ sister.get_update_url }}">Edit Sister</a></li>
+    <li><a href="{{ sister.get_delete_url }}">Delete Sister</a></li>
+  </ul>
   <dl>
     <dt>Mission</dt>
       <dd>{{ sister.mission }}</dd>

@@ -17,6 +17,12 @@ class Priest(models.Model):
     def get_absolute_url(self):
         return reverse('churchadmin_priest_detail', kwargs={'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('churchadmin_priest_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('churchadmin_priest_delete', kwargs={'slug': self.slug})
+
     class meta:
         ordering = ['name']
         verbose_name_plural = "priests"
@@ -36,6 +42,12 @@ class Sister(models.Model):
     def get_absolute_url(self):
         return reverse('churchadmin_sister_detail', kwargs={'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('churchadmin_sister_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('churchadmin_sister_delete', kwargs={'slug': self.slug})
+
     class meta:
         ordering = ['name']
         verbose_name_plural = "sisters"
@@ -54,6 +66,12 @@ class Cathecist(models.Model):
     def get_absolute_url(self):
         return reverse('churchadmin_cathecist_detail', kwargs={'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('churchadmin_cathecist_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('churchadmin_cathecist_delete', kwargs={'slug': self.slug})
+
     class meta:
         ordering = ['name']
         verbose_name_plural = "cathecists"
@@ -69,6 +87,12 @@ class AlterBoy(models.Model):
 
     def get_absolute_url(self):
         return reverse('churchadmin_alterboy_detail', kwargs={'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('churchadmin_alterboy_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('churchadmin_alterboy_delete', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']

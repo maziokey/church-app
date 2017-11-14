@@ -7,9 +7,18 @@
 {% block content %}
 
 <h2>Our Priests</h2>
+<div class="">
+  <a href="{% url 'churchadmin_priest_create' %}">Add New Priest</a>
+</div>
 <ul>
   {% for priest in priest_list %}
-    <li><a href="{{ priest.get_absolute_url }}">{{ priest.name|title }}</a></li>
+    <li>
+      <a href="{{ priest.get_absolute_url }}">{{ priest.name|title }}</a>
+      <ul>
+        <li><a href="{{ priest.get_update_url }}">Edit Priest</a></li>
+        <li><a href="{{ priest.get_delete_url }}">Delete Priest</a></li>
+      </ul>
+    </li>
   {% empty %}
     <li><em>There are no priests in our church yet.</em></li>
   {% endfor %}

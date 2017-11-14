@@ -7,9 +7,18 @@
 {% block content %}
 
 <h2>Our Sisters</h2>
+<div class="">
+  <a href="{% url 'churchadmin_sister_create' %}">Add New Sister</a>
+</div>
 <ul>
   {% for sister in sister_list %}
-    <li><a href="{{ sister.get_absolute_url }}">{{ sister.name|title }}</a></li>
+    <li>
+      <a href="{{ sister.get_absolute_url }}">{{ sister.name|title }}</a>
+      <ul>
+        <li><a href="{{ sister.get_update_url }}">Edit Sister</a></li>
+        <li><a href="{{ sister.get_delete_url }}">Delete Sister</a></li>
+      </ul>
+    </li>
   {% empty %}
     <li><em>There are no sisters in our church yet.</em></li>
   {% endfor %}

@@ -8,6 +8,10 @@
 
 <article>
   <h2>{{ community.name|title }}</h2>
+  <ul>
+    <li><a href="{{ community.get_update_url }}">Edit Community</a></li>
+    <li><a href="{{ community.get_delete_url }}">Delete Community</a></li>
+  </ul>
   <dl>
     <dt>Description</dt>
       <dd>{{ community.description }}</dd>

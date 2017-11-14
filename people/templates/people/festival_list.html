@@ -7,9 +7,18 @@
 {% block content %}
 
 <h2>Festivals</h2>
+<div class="">
+  <a href="{% url 'people_festival_create' %}">Add Festival</a>
+</div>
 <ul>
   {% for festival in festival_list %}
-    <li><a href="{{ festival.get_absolute_url }}">{{ festival.name|title }}</a></li>
+    <li>
+      <a href="{{ festival.get_absolute_url }}">{{ festival.name|title }}</a>
+      <ul>
+        <li><a href="{{ festival.get_update_url }}">Edit Festival</a></li>
+        <li><a href="{{ festival.get_delete_url }}">Delete Festival</a></li>
+      </ul>
+    </li>
   {% empty %}
     <li><em>There are no Festivals to celebrate this year.</em></li>
   {% endfor %}

@@ -6,9 +6,18 @@
 
 {% block content %}
 <h2>Our Mass Servants</h2>
+<div class="">
+  <a href="{% url 'churchadmin_alterboy_create' %}">Add New Mass Servant</a>
+</div>
 <ul>
   {% for alterboy in alterboy_list %}
-    <li><a href="{{ alterboy.get_absolute_url }}">{{ alterboy.name|title }}</a></li>
+    <li>
+      <a href="{{ alterboy.get_absolute_url }}">{{ alterboy.name|title }}</a>
+      <ul>
+        <li><a href="{{ alterboy.get_update_url }}">Edit Mass Servant</a></li>
+        <li><a href="{{ alterboy.get_delete_url }}">Delete Mass Servant</a></li>
+      </ul>
+    </li>
   {% empty %}
     <li><em>There are no alterboys in our church yet.</em></li>
   {% endfor %}

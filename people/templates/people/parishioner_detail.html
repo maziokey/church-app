@@ -8,6 +8,10 @@
 
 <article>
   <h2>{{ parishioner.name|title }}</h2>
+  <ul>
+    <li><a href="{{ parishioner.get_update_url }}">Edit Parishioner</a></li>
+    <li><a href="{{ parishioner.get_delete_url }}">Delete Parishioner</a></li>
+  </ul>
   <dl>
     <dt>Date of Birth</dt>
       <dd>{{ parishioner.date_of_birth|date:"F jS, Y" }}</dd>

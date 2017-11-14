@@ -7,9 +7,16 @@
 {% block content %}
 
 {% for sermon in sermon_list %}
+<div class="">
+  <a href="{% url 'blog_sermon_create' %}">Create a New Sermon</a>
+</div>
   <article>
     <header>
       <h2><a href="{{ sermon.get_absolute_url }}">{{ sermon.title|title }}</a></h2>
+      <ul>
+        <li><a href="{{ sermon.get_update_url }}">Edit Sermon</a></li>
+        <li><a href="{{ sermon.get_delete_url }}">Delete Sermon</a></li>
+      </ul>
       <p>
         Written on:
         <time datetime="{{ sermon.pub_date|date:"Y-m-d" }}">

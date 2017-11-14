@@ -14,6 +14,12 @@ class Sermon(models.Model):
     def get_absolute_url(self):
         return reverse('blog_sermon_detail', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('blog_sermon_update', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('blog_sermon_delete', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
+
     class meta:
         verbose_name_plural = 'sermons'
         ordering = ['-pub_date', 'title']
@@ -31,6 +37,12 @@ class Issue(models.Model):
     def get_absolute_url(self):
         return reverse('blog_issue_detail', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('blog_issue_update', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('blog_issue_delete', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
+
     class meta:
         verbose_name_plural = 'issues'
         ordering = ['-pub_date']
@@ -47,6 +59,12 @@ class Announcement(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog_announcement_detail', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('blog_announcement_update', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('blog_announcement_delete', kwargs={'year': self.pub_date.year, 'month': self.pub_date.month, 'slug': self.slug})
 
     class meta:
         verbose_name_plural = 'announcements'
@@ -73,6 +91,12 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog_project_detail', kwargs={'year': self.start_date.year, 'month': self.start_date.month, 'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('blog_project_update', kwargs={'year': self.start_date.year, 'month': self.start_date.month, 'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('blog_project_delete', kwargs={'year': self.start_date.year, 'month': self.start_date.month, 'slug': self.slug})
 
     class meta:
         verbose_name_plural = 'projects'

@@ -7,9 +7,16 @@
 {% block content %}
 
 {% for issue in issue_list %}
+<div class="">
+  <a href="{% url 'blog_issue_create' %}">Create a New Issue</a>
+</div>
   <article>
     <header>
       <h2><a href="{{ issue.get_absolute_url }}">{{ issue.title|title }}</a></h2>
+      <ul>
+        <li><a href="{{ issue.get_update_url }}">Edit Issue</a></li>
+        <li><a href="{{ issue.get_delete_url }}">Delete Issue</a></li>
+      </ul>
       <p>
         Written on:
         <time datetime="{{ issue.pub_date|date:"Y-m-d" }}">

@@ -7,9 +7,18 @@
 {% block content %}
 
 <h2>Our Societies</h2>
+<div class="">
+  <a href="{% url 'people_society_create' %}">Create Society</a>
+</div>
 <ul>
   {% for society in society_list %}
-    <li><a href="{{ society.get_absolute_url }}">{{ society.name|title }}</a></li>
+    <li>
+      <a href="{{ society.get_absolute_url }}">{{ society.name|title }}</a>
+      <ul>
+        <li><a href="{{ society.get_update_url }}">Edit Society</a></li>
+        <li><a href="{{ society.get_delete_url }}">Delete Society</a></li>
+      </ul>
+    </li>
   {% empty %}
     <li><em>There are no societies to join this year.</em></li>
   {% endfor %}

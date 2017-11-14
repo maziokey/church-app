@@ -16,6 +16,12 @@ class Society(models.Model):
     def get_absolute_url(self):
         return reverse('people_society_detail', kwargs={'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('people_society_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('people_society_delete', kwargs={'slug': self.slug})
+
     class meta:
         ordering = ['name']
         verbose_name_plural = "societies"
@@ -33,6 +39,12 @@ class Community(models.Model):
 
     def get_absolute_url(self):
         return reverse('people_community_detail', kwargs={'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('people_community_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('people_community_delete', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']
@@ -66,6 +78,12 @@ class Festival(models.Model):
     def get_absolute_url(self):
         return reverse('people_festival_detail', kwargs={'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('people_festival_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('people_festival_delete', kwargs={'slug': self.slug})
+
     class meta:
         ordering = ['name']
         verbose_name_plural = "festivals"
@@ -86,6 +104,12 @@ class Parishioner(models.Model):
 
     def get_absolute_url(self):
         return reverse('people_parishioner_detail', kwargs={'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('people_parishioner_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('people_parishioner_delete', kwargs={'slug': self.slug})
 
     class meta:
         ordering = ['name']

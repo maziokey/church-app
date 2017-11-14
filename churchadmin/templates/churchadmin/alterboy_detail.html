@@ -8,6 +8,10 @@
 
 <article>
   <h2>{{ alterboy.name|title }}</h2>
+  <ul>
+    <li><a href="{{ alterboy.get_update_url }}">Edit Mass Servant</a></li>
+    <li><a href="{{ alterboy.get_delete_url }}">Delete Mass Servant</a></li>
+  </ul>
   <dl>
     <dt>Date Posted</dt>
       <dd>{{ alterboy.start_date|date:"F jS, Y" }}</dd>

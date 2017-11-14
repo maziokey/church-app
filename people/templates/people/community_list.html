@@ -6,9 +6,18 @@
 
 {% block content %}
 <h2>Our Communities</h2>
+<div class="">
+  <a href="{% url 'people_community_create' %}">Create Community</a>
+</div>
 <ul>
   {% for community in community_list %}
-    <li><a href="{{ community.get_absolute_url }}">{{ community.name|title }}</a></li>
+    <li>
+      <a href="{{ community.get_absolute_url }}">{{ community.name|title }}</a>
+      <ul>
+        <li><a href="{{ community.get_update_url }}">Edit Community</a></li>
+        <li><a href="{{ community.get_delete_url }}">Delete Community</a></li>
+      </ul>
+    </li>
   {% empty %}
     <li><em>There are no communities to join this year.</em></li>
   {% endfor %}

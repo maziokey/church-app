@@ -7,6 +7,10 @@
 {% block content %}
 <article>
   <h2>{{ society.name|title }}</h2>
+  <ul>
+    <li><a href="{{ society.get_update_url }}">Edit Society</a></li>
+    <li><a href="{{ society.get_delete_url }}">Delete Society</a></li>
+  </ul>
   <dl>
     <dt>Description</dt>
       <dd>{{ society.description }}</dd>

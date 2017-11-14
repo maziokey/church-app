@@ -8,6 +8,10 @@
 
 <article>
   <h2>{{ festival.name|title }}</h2>
+  <ul>
+    <li><a href="{{ festival.get_update_url }}">Edit Festival</a></li>
+    <li><a href="{{ festival.get_delete_url }}">Delete Festival</a></li>
+  </ul>
   <dl>
     <dt>Festival Date</dt>
       <dd>{{ festival.festival_date|date:"F jS, Y" }}</dd>

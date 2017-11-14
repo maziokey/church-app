@@ -7,9 +7,16 @@
 {% block content %}
 
 {% for project in project_list %}
+<div class="">
+  <a href="{% url 'blog_project_create' %}">Create a New Project</a>
+</div>
   <article>
     <header>
       <h2><a href="{{ project.get_absolute_url }}">{{ project.title|title }}</a></h2>
+      <ul>
+        <li><a href="{{ project.get_update_url }}">Edit Project</a></li>
+        <li><a href="{{ project.get_delete_url }}">Delete Project</a></li>
+      </ul>
       <p>
         Project Started on:
         <time datetime="{{ project.start_date|date:"Y-m-d" }}">

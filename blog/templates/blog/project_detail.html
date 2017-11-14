@@ -9,6 +9,10 @@
 <article>
   <header>
     <h2>{{ project.title|title }}</h2>
+    <ul>
+      <li><a href="{{ project.get_update_url }}">Edit Project</a></li>
+      <li><a href="{{ project.get_delete_url }}">Delete Project</a></li>
+    </ul>
     <p>
      Started on
       <time datetime="{{ project.start_date|date:"Y-m-d" }}">

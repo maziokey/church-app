@@ -9,6 +9,10 @@
 <article>
   <header>
     <h2>{{ announcement.title|title }}</h2>
+    <ul>
+      <li><a href="{{ announcement.get_update_url }}">Edit Announcement</a></li>
+      <li><a href="{{ announcement.get_delete_url }}">Delete Announcement</a></li>
+    </ul>
     <p>
       Written on
       <time datetime="{{ announcement.pub_date|date:"Y-m-d" }}">

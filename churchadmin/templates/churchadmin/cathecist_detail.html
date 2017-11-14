@@ -8,6 +8,10 @@
 
 <article>
   <h2>{{ cathecist.name|title }}</h2>
+  <ul>
+    <li><a href="{{ cathecist.get_update_url }}">Edit Cathecist</a></li>
+    <li><a href="{{ cathecist.get_delete_url }}">Delete Cathecist</a></li>
+  </ul>
   <dl>
     <dt>Position</dt>
       <dd>{{ cathecist.position }}</dd>

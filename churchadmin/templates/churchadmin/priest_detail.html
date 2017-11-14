@@ -8,6 +8,10 @@
 
 <article>
   <h2>{{ priest.name|title }}</h2>
+  <ul>
+    <li><a href="{{ priest.get_update_url }}">Edit Priest</a></li>
+    <li><a href="{{ priest.get_delete_url }}">Delete Priest</a></li>
+  </ul>
   <dl>
     <dt>Mission</dt>
       <dd>{{ priest.mission }}</dd>
