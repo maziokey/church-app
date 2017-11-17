@@ -14,20 +14,20 @@ class SlugCleanMixin:
 
 class SermonForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Sermon
+        model = Sermon
         fields = '__all__'
 
 class IssueForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Issue
+        model = Issue
         fields = '__all__'
 
 class AnnouncementForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Announcement
+        model = Announcement
         fields = '__all__'
 
 class ProjectForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Project
+        model = Project
         fields = '__all__'

@@ -14,25 +14,25 @@ class SlugCleanMixin:
 
 class SocietyForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Society
+        model = Society
         fields = '__all__'
 
 class CommunityForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Community
+        model = Community
         fields = '__all__'
 
 class SacramentForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Sacrament
+        model = Sacrament
         fields = '__all__'
 
 class FestivalForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Festival
+        model = Festival
         fields = '__all__'
 
 class ParishionerForm(SlugCleanMixin, forms.ModelForm):
     class Meta:
-        Model = Parishioner
+        model = Parishioner
         fields = '__all__'
